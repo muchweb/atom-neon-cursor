@@ -1,0 +1,13 @@
+{
+  "name": "neon-cursor",
+  "main": "./lib/neon-cursor",
+  "version": "0.0.1",
+  "description": "Cursor style, inspired by Enligntenment's Terminology",
+  "repository": "https://github.com/muchweb/atom-neon-cursor",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}
