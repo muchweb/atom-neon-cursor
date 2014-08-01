@@ -1,7 +1,7 @@
 {
   "name": "neon-cursor",
   "main": "./lib/neon-cursor",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Glowing cursor style, inspired by Enligntenment's Terminology",
   "repository": "https://github.com/muchweb/atom-neon-cursor",
   "license": "MIT",
