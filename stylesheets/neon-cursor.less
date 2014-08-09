@@ -30,28 +30,27 @@
     }
 }
 
-.overlayer {
-    &>.cursors {
-        &>.cursor {
-            border: 1px solid rgb(0, 119, 255);
-            -webkit-animation: neon-cursor-body 1s linear infinite;
 
-            &:after {
-                content: '';
-                border: 1px solid rgb(97, 210, 255);
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                left: 0;
-                top: 0;
-                -webkit-animation: neon-cursor-pulse 1s linear infinite;
-            }
+.cursors {
+    &>.cursor {
+        border: 1px solid rgb(0, 119, 255);
+        -webkit-animation: neon-cursor-body 1s linear infinite;
 
+        &:after {
+            content: '';
+            border: 1px solid rgb(97, 210, 255);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            -webkit-animation: neon-cursor-pulse 1s linear infinite;
         }
-        &.blink-off {
-            &>.cursor {
-                visibility: visible !important;
-            }
+    }
+    
+    &.blink-off {
+        &>.cursor {
+            visibility: visible !important;
         }
     }
 }
