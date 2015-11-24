@@ -3,13 +3,18 @@
   "main": "./lib/neon-cursor",
   "version": "1.0.0",
   "description": "Glowing cursor style, inspired by Enligntenment's Terminology",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Matthew-Smith/atom-neon-cursor.git"
-  },
-  "license": "MIT",
+  "keywords": [
+    "neon",
+    "glow",
+    "ui",
+    "cursor",
+    "theme",
+    "termonology"
+  ],
+  "repository": "https://github.com/muchweb/atom-neon-cursor",
+  "license": "GPL-3.0+",
   "engines": {
-    "atom": ">0.120.0"
+    "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {}
 }
