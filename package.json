@@ -5,7 +5,7 @@
   "description": "Glowing cursor style, inspired by Enligntenment's Terminology",
   "repository": {
     "type": "git",
-    "url": "git+https://atom.io/packages/neon-cursor"
+    "url": "git+https://github.com/Matthew-Smith/atom-neon-cursor.git"
   },
   "license": "MIT",
   "engines": {
