@@ -30,7 +30,7 @@
     }
 }
 
-.atom-text-editor:not(.insert-mode) {
+atom-text-editor::shadow:not(.insert-mode) {
     .cursors {
         &>.cursor {
             border: 1px solid rgb(0, 119, 255);
@@ -56,7 +56,7 @@
     }
 }
 
-.atom-text-editor.vim-mode:not(.insert-mode) {
+atom-text-editor::shadow.vim-mode:not(.insert-mode) {
     .scroll-view .cursors {
         .cursor {
             background-color: inherit;
