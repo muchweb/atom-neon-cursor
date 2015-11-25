@@ -7,71 +7,120 @@ under certain conditions; see LICENSE.md for details. */
 @neon-cursor-color-highlighted: spin(saturate(lighten(@neon-cursor-color, 15%), 100%), -10);
 @neon-cursor-glow-color: rgb(75, 213, 255);
 
-@-webkit-keyframes neon-cursor-body {
-    0% {
-        outline: 1px solid @neon-cursor-color-highlighted;
-        box-shadow: 0 0 4px 0px @neon-cursor-color-highlighted, 0 0 4px 0px @neon-cursor-color-highlighted inset;
-    }
-    80% {
-        outline: 1px solid @neon-cursor-color;
-        box-shadow: 0 0 4px 0px fade(@neon-cursor-color-highlighted, 0%), 0 0 4px 0px fade(@neon-cursor-color-highlighted , 0%)inset;
-    }
-    100% {
-        outline: 1px solid @neon-cursor-color;
-        box-shadow: 0 0 4px 0px fade(@neon-cursor-color-highlighted, 0%), 0 0 4px 0px fade(@neon-cursor-color-highlighted , 0%)inset;
-    }
+// Thick block style.
+@-webkit-keyframes neon-cursor-box {
+	0% {
+		outline: 1px solid @neon-cursor-color-highlighted;
+	}
+	80% {
+		outline: 1px solid @neon-cursor-color;
+	}
+	100% {
+		outline: 1px solid @neon-cursor-color;
+	}
 }
 
+// Thin line style.
+@-webkit-keyframes neon-cursor-bar {
+	0% {
+		border-left: 1px solid @neon-cursor-color-highlighted;
+	}
+	80% {
+		border-left: 1px solid @neon-cursor-color;
+	}
+	100% {
+		border-left: 1px solid @neon-cursor-color;
+	}
+}
+
+// Slow glow fade-out effect.
+@-webkit-keyframes neon-cursor-glow {
+	0% {
+		box-shadow: 0 0 4px 0px @neon-cursor-color-highlighted, 0 0 4px 0px @neon-cursor-color-highlighted inset;
+	}
+	80% {
+		box-shadow: 0 0 4px 0px fade(@neon-cursor-color-highlighted, 0%), 0 0 4px 0px fade(@neon-cursor-color-highlighted , 0%)inset;
+	}
+	100% {
+		box-shadow: 0 0 4px 0px fade(@neon-cursor-color-highlighted, 0%), 0 0 4px 0px fade(@neon-cursor-color-highlighted , 0%)inset;
+	}
+}
+
+// Quick pulse effect.
 @-webkit-keyframes neon-cursor-pulse {
-    0% {
-        -webkit-transform: scale(1);
-        opacity: 1;
-    }
-    20% {
-        -webkit-transform: scale(1.5);
-        opacity: 0;
-    }
-    100% {
-        -webkit-transform: scale(1.5);
-        opacity: 0;
-    }
+	0% {
+		-webkit-transform: scale(1);
+		opacity: 1;
+	}
+	20% {
+		-webkit-transform: scale(1.5);
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: scale(1.5);
+		opacity: 0;
+	}
 }
 
 atom-text-editor::shadow:not(.insert-mode) {
-    .cursors {
-        &>.cursor {
-            border: none !important;
-            outline: 1px solid @neon-cursor-color;
-            -webkit-animation: neon-cursor-body 1s linear infinite;
+	.cursors {
+		&.neon-cursor-bar {
+			& > .cursor {
+				-webkit-animation: neon-cursor-bar 1s linear infinite;
 
-            &:after {
-                content: '';
-                outline: 1px solid @neon-cursor-color-highlighted;
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                left: 0;
-                top: 0;
-                transform-origin: center center;
-                -webkit-animation: neon-cursor-pulse 1s linear infinite;
-            }
-        }
+				&:after {
+					width: 0px;
+				}
 
-        &.blink-off {
-            &>.cursor {
-                opacity: 1 !important;
-            }
-        }
-    }
+				&:before {
+					left: -1px;
+					width: 1px;
+				}
+			}
+		}
+
+		& > .cursor {
+			border: none !important;
+			-webkit-animation: neon-cursor-box 1s linear infinite;
+
+			&:before {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				-webkit-animation: neon-cursor-glow 1s linear infinite;
+			}
+
+			&:after {
+				content: '';
+				outline: 1px solid @neon-cursor-color-highlighted;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+				transform-origin: center center;
+				-webkit-animation: neon-cursor-pulse 1s linear infinite;
+			}
+		}
+
+		&.blink-off {
+			& > .cursor {
+				opacity: 1 !important;
+			}
+		}
+	}
 }
 
 atom-text-editor::shadow.vim-mode:not(.insert-mode) {
-    .scroll-view .cursors {
-        .cursor {
-            background-color: inherit;
-            border: 1px solid @neon-cursor-color;
-            opacity: inherit;
-            visibility: visible;
-        }
-    }
+	.scroll-view .cursors {
+		.cursor {
+			background-color: inherit;
+			border: 1px solid @neon-cursor-color;
+			opacity: inherit;
+			visibility: visible;
+		}
+	}
 }
