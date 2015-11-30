@@ -3,7 +3,10 @@ under certain conditions; see LICENSE.md for details. */
 
 @import "ui-variables";
 
-@neon-cursor-color: @base-accent-color;
+
+.ui-syntax-color() { @syntax-background-color: hsl(220, 24%, 20%); } .ui-syntax-color(); // fallback color
+@neon-cursor-color-inverse: difference(@syntax-background-color, #ffffff);
+@neon-cursor-color: hsl(198, 80%, max(min(lightness(@neon-cursor-color-inverse), 80%), 20%));
 @neon-cursor-color-highlighted: spin(saturate(lighten(@neon-cursor-color, 15%), 100%), -10);
 
 // Thick block style.
